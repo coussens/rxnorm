@@ -18,10 +18,6 @@ create_url <- function(local, path, ...) {
   httr::build_url(url)
 }
 
-check_internet <- function() {
-  stopifnot("No internet connection" = curl::has_internet())
-}
-
 check_status <- function(x) {
   httr::status_code(x) == "200"
 }

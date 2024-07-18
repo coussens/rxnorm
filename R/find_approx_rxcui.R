@@ -15,7 +15,6 @@ path_approx <- "REST/approximateTerm"
 #' @examples
 #' find_approx_rxcui("FENTANYL 10MCG/ML SOLN INJ PCA 30ML")
 find_approx_rxcui <- function(string, n = 1, minscore = 10, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, path_approx, term = string, option = 1)
   check_null(parse_approx_rxcui(httr::GET(url), n = n, minscore = minscore))
 }

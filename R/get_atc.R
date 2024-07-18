@@ -17,7 +17,6 @@
 #' get_atc(861819, "third")
 #' get_atc(861819, "fourth")
 get_atc <- function(rx_cui, query_atc = c("none", "first", "second", "third", "fourth"), local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, path_atc, rxcui = rx_cui, relasource = "ATCPROD")
   check_null(parse_atc(httr::GET(url), rx_cui, rela, match.arg(query_atc)))
 }

@@ -10,7 +10,6 @@
 #' get_rxcui_status(861819)
 get_rxcui_status <- function(rx_cui, local_host = FALSE) {
   # https://lhncbc.nlm.nih.gov/RxNav/APIs/api-RxNorm.getRxcuiHistoryStatus.html
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   check_null(parse_rxcui_status(httr::GET(url)))
 }
@@ -31,7 +30,6 @@ parse_rxcui_status <- function(x) {
 #' @examples
 #' get_remapped_rxcui(197523)
 get_remapped_rxcui <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   check_null(parse_rxcui_remapped(httr::GET(url)))
 }
@@ -52,7 +50,6 @@ parse_rxcui_remapped <- function(x) {
 #' @examples
 #' get_quantified_rxcui(1734477)
 get_quantified_rxcui <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   check_null(parse_rxcui_quantified(httr::GET(url)))
 }
@@ -67,7 +64,6 @@ parse_rxcui_quantified <- function(x) {
 #' @examples
 #' get_scd_rxcui("861765")
 get_scd_rxcui <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   browser()
   check_null(parse_rxcui_scd(httr::GET(url)))

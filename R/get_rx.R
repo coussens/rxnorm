@@ -10,7 +10,6 @@
 #' @examples
 #' get_rx(1011485)
 get_rx <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   check_null(parse_rx(httr::GET(url)))
 }
@@ -21,7 +20,6 @@ parse_rx <- function(x) {
 }
 
 get_rx_ndc <- function(ndc, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, path_ndc, ndc = ndc)
   check_null(parse_rx_ndc(httr::GET(url)))
 }

@@ -9,7 +9,6 @@
 #' @examples
 #' from_ndc("00002143301")
 from_ndc <- function(ndc, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, path_ndc, ndc = ndc)
   parse_ndc(httr::GET(url), "rxcui")
 }

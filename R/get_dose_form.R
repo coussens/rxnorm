@@ -10,7 +10,6 @@
 #' @examples
 #' get_dose_form(1011485)
 get_dose_form <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/rxcui/", rx_cui, "/historystatus"))
   check_null(parse_dose_form(httr::GET(url)))
 }

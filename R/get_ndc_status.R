@@ -9,7 +9,6 @@
 #' @examples
 #' get_ndc_status("00002143301")
 get_ndc_status <- function(ndc, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, path_ndc, ndc = ndc)
   parse_ndc(httr::GET(url), "status")
 }

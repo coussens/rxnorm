@@ -11,7 +11,6 @@
 #' get_bn(1011485)
 #' get_bn(7052)
 get_bn <- function(rx_cui, local_host = FALSE) {
-  check_internet()
   url <- create_url(local_host, paste0("REST/RxTerms/rxcui/", rx_cui, "/allinfo"))
   parse_bn(httr::GET(url))
 }
